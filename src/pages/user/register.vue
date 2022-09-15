@@ -124,6 +124,7 @@
               position: 'bottom',
               message: '用户名不能为空'
             });
+            return false;
           }
           else if(this.storeManager.userName.search(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)!=0){
             this.verification=false;
@@ -131,6 +132,7 @@
               position: 'bottom',
               message: '请检查手机号是否可用'
             });
+            return false;
           }
           else {
             this.verification=true;
@@ -185,6 +187,7 @@
       },
       // 验证登陆手机号格式
       checkStorePhone(){
+        debugger
         if(this.storeManager.storePhone == ''){
           Toast({
             position: 'bottom',
@@ -205,7 +208,11 @@
       },
 
       checkIsNull(){
-        if(this.checkUserName()==false||this.storeManager.userPassword==''||this.storeManager.storeName==''||this.checkStorePhone()==false){
+        debugger
+        if(this.checkUserName()==false
+          ||this.storeManager.userPassword==''
+          ||this.storeManager.storeName==''
+          ||this.checkStorePhone()==false){
           return false;
         } else{
           return true;
